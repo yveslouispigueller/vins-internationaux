@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍷 Sélection Vins Internationaux Premium - Rating 4.1+</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #8B0000 0%, #4A0404 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .last-update {
+            text-align: center;
+            color: white;
+            font-size: 0.9em;
+            margin-top: 15px;
+            opacity: 0.8;
+        }
+
+        .filters {
+            padding: 30px;
+            background: #f8f9fa;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .filter-group label {
+            font-weight: 600;
+            color: #333;
+            font-size: 0.9em;
+        }
+
+        select, input {
+            padding: 10px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            background: white;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+
+        select:hover, input:hover {
+            border-color: #8B0000;
+        }
+
+        select:focus, input:focus {
+            outline: none;
+            border-color: #8B0000;
+        }
+
+        .stats {
+            padding: 20px 30px;
+            background: white;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #8B0000;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        .wines-grid {
+            padding: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .wine-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid #f0f0f0;
+        }
+
+        .wine-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border-color: #8B0000;
+        }
+
+        .wine-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 15px;
+        }
+
+        .wine-name {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #333;
+            flex: 1;
+        }
+
+        .wine-flag {
+            font-size: 2em;
+            margin-left: 10px;
+        }
+
+        .wine-details {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px;
+            background: #f8f9fa;
+            border-radius: 6px;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .detail-value {
+            color: #333;
+            font-weight: 500;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #8B0000;
+            font-weight: bold;
+        }
+
+        .prices {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px solid #eee;
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 12px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            transition: background 0.3s;
+        }
+
+        .price-item:hover {
+            background: #e9ecef;
+        }
+
+        .price-store {
+            font-weight: 600;
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .price-value {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #8B0000;
+        }
+
+        .best-price {
+            background: linear-gradient(135deg, #8B0000 0%, #4A0404 100%);
+            color: white !important;
+        }
+
+        .best-price .price-store,
+        .best-price .price-value {
+            color: white !important;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: #666;
+            font-size: 1.2em;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 60px 20px;
+            color: #8B0000;
+            font-size: 1.3em;
+        }
+
+        @media (max-width: 768px) {
+            .wines-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .filters {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🍷 Sélection Vins Internationaux Premium</h1>
+            <p>Vins avec rating Vivino ≥ 4.1 | 9 pays | 9 sources</p>
+            <div class="last-update" id="lastUpdate">Dernière mise à jour : Chargement...</div>
+        </div>
+
+        <div class="filters">
+            <div class="filter-group">
+                <label>🌍 Pays</label>
+                <select id="countryFilter">
+                    <option value="">Tous les pays</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>🍇 Type</label>
+                <select id="typeFilter">
+                    <option value="">Tous les types</option>
+                    <option value="Rouge">Rouge</option>
+                    <option value="Blanc">Blanc</option>
+                    <option value="Champagne">Champagne</option>
+                    <option value="Rosé">Rosé</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>⭐ Rating minimum</label>
+                <select id="ratingFilter">
+                    <option value="4.1">4.1+</option>
+                    <option value="4.2">4.2+</option>
+                    <option value="4.3">4.3+</option>
+                    <option value="4.4">4.4+</option>
+                    <option value="4.5">4.5+</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>💰 Prix maximum (CHF)</label>
+                <input type="number" id="priceFilter" placeholder="Ex: 50" min="0" step="5">
+            </div>
+
+            <div class="filter-group">
+                <label>🔍 Recherche</label>
+                <input type="text" id="searchFilter" placeholder="Nom du vin...">
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number" id="totalWines">0</div>
+                <div class="stat-label">Vins</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="visibleWines">0</div>
+                <div class="stat-label">Affichés</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="avgRating">0</div>
+                <div class="stat-label">Rating moyen</div>
+            </div>
+        </div>
+
+        <div id="winesContainer" class="wines-grid">
+            <div class="loading">⏳ Chargement des vins...</div>
+        </div>
+    </div>
+
+    <script>
+        let allWines = [];
+
+        // Flags par pays
+        const countryFlags = {
+            'France': '🇫🇷',
+            'Italie': '🇮🇹',
+            'Espagne': '🇪🇸',
+            'Portugal': '🇵🇹',
+            'Chili': '🇨🇱',
+            'Argentine': '🇦🇷',
+            'USA': '🇺🇸',
+            'Australie': '🇦🇺',
+            'Afrique du Sud': '🇿🇦'
+        };
+
+        // Charger les données
+        async function loadWines() {
+            try {
+                const response = await fetch('vins_data.json');
+                const data = await response.json();
+                allWines = data.vins;
+                
+                // Mettre à jour la date
+                document.getElementById('lastUpdate').textContent = 
+                    `Dernière mise à jour : ${data.derniere_maj}`;
+                
+                // Remplir le filtre pays
+                const countries = [...new Set(allWines.map(w => w.pays))].sort();
+                const countryFilter = document.getElementById('countryFilter');
+                countries.forEach(country => {
+                    const option = document.createElement('option');
+                    option.value = country;
+                    option.textContent = `${countryFlags[country] || ''} ${country}`;
+                    countryFilter.appendChild(option);
+                });
+                
+                displayWines();
+                updateStats();
+            } catch (error) {
+                document.getElementById('winesContainer').innerHTML = 
+                    '<div class="no-results">❌ Erreur de chargement des données</div>';
+                console.error('Erreur:', error);
+            }
+        }
+
+        // Afficher les vins
+        function displayWines() {
+            const container = document.getElementById('winesContainer');
+            const filteredWines = filterWines();
+            
+            if (filteredWines.length === 0) {
+                container.innerHTML = '<div class="no-results">😔 Aucun vin ne correspond aux critères</div>';
+                return;
+            }
+
+            container.innerHTML = filteredWines.map(wine => createWineCard(wine)).join('');
+            updateStats(filteredWines);
+        }
+
+        // Créer une carte de vin
+        function createWineCard(wine) {
+            const prices = wine.prix.sort((a, b) => a.prix - b.prix);
+            const bestPrice = prices[0];
+
+            return `
+                <div class="wine-card">
+                    <div class="wine-header">
+                        <div class="wine-name">${wine.nom}</div>
+                        <div class="wine-flag">${countryFlags[wine.pays] || '🍷'}</div>
+                    </div>
+                    
+                    <div class="wine-details">
+                        <div class="detail-row">
+                            <span class="detail-label">Type</span>
+                            <span class="detail-value">${wine.type}</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Région</span>
+                            <span class="detail-value">${wine.region || 'N/A'}</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Millésime</span>
+                            <span class="detail-value">${wine.millesime || 'N/A'}</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Rating Vivino</span>
+                            <span class="rating">⭐ ${wine.rating.toFixed(2)}</span>
+                        </div>
+                    </div>
+
+                    <div class="prices">
+                        ${prices.map(price => `
+                            <div class="price-item ${price === bestPrice ? 'best-price' : ''}">
+                                <span class="price-store">${price.magasin}</span>
+                                <span class="price-value">${price.prix.toFixed(2)} CHF</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Filtrer les vins
+        function filterWines() {
+            const country = document.getElementById('countryFilter').value;
+            const type = document.getElementById('typeFilter').value;
+            const rating = parseFloat(document.getElementById('ratingFilter').value);
+            const maxPrice = parseFloat(document.getElementById('priceFilter').value) || Infinity;
+            const search = document.getElementById('searchFilter').value.toLowerCase();
+
+            return allWines.filter(wine => {
+                const matchCountry = !country || wine.pays === country;
+                const matchType = !type || wine.type === type;
+                const matchRating = wine.rating >= rating;
+                const minPrice = Math.min(...wine.prix.map(p => p.prix));
+                const matchPrice = minPrice <= maxPrice;
+                const matchSearch = !search || 
+                    wine.nom.toLowerCase().includes(search) ||
+                    wine.region?.toLowerCase().includes(search);
+
+                return matchCountry && matchType && matchRating && matchPrice && matchSearch;
+            });
+        }
+
+        // Mettre à jour les statistiques
+        function updateStats(wines = allWines) {
+            document.getElementById('totalWines').textContent = allWines.length;
+            document.getElementById('visibleWines').textContent = wines.length;
+            
+            if (wines.length > 0) {
+                const avgRating = wines.reduce((sum, w) => sum + w.rating, 0) / wines.length;
+                document.getElementById('avgRating').textContent = avgRating.toFixed(2);
+            } else {
+                document.getElementById('avgRating').textContent = '0';
+            }
+        }
+
+        // Event listeners
+        document.getElementById('countryFilter').addEventListener('change', displayWines);
+        document.getElementById('typeFilter').addEventListener('change', displayWines);
+        document.getElementById('ratingFilter').addEventListener('change', displayWines);
+        document.getElementById('priceFilter').addEventListener('input', displayWines);
+        document.getElementById('searchFilter').addEventListener('input', displayWines);
+
+        // Charger au démarrage
+        loadWines();
+    </script>
+</body>
+</html>

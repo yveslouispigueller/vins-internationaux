@@ -1,0 +1,200 @@
+{
+  "derniere_maj": "10 janvier 2026 - 14:30",
+  "vins": [
+    {
+      "nom": "Châteauneuf-du-Pape Grand Réserve",
+      "pays": "France",
+      "region": "Rhône",
+      "type": "Rouge",
+      "millesime": "2020",
+      "rating": 4.5,
+      "prix": [
+        {"magasin": "Coop", "prix": 45.90},
+        {"magasin": "Denner", "prix": 43.50},
+        {"magasin": "Vivino CH", "prix": 42.00}
+      ]
+    },
+    {
+      "nom": "Barolo Riserva DOCG",
+      "pays": "Italie",
+      "region": "Piémont",
+      "type": "Rouge",
+      "millesime": "2018",
+      "rating": 4.4,
+      "prix": [
+        {"magasin": "Mövenpick", "prix": 52.00},
+        {"magasin": "Coop", "prix": 54.90},
+        {"magasin": "Qwine", "prix": 49.90}
+      ]
+    },
+    {
+      "nom": "Rioja Gran Reserva",
+      "pays": "Espagne",
+      "region": "Rioja",
+      "type": "Rouge",
+      "millesime": "2016",
+      "rating": 4.3,
+      "prix": [
+        {"magasin": "Denner", "prix": 28.90},
+        {"magasin": "Coop", "prix": 31.50},
+        {"magasin": "Vivino CH", "prix": 27.50}
+      ]
+    },
+    {
+      "nom": "Douro Superior Reserva",
+      "pays": "Portugal",
+      "region": "Douro",
+      "type": "Rouge",
+      "millesime": "2019",
+      "rating": 4.2,
+      "prix": [
+        {"magasin": "The Wine Family", "prix": 22.90},
+        {"magasin": "Coop", "prix": 24.50},
+        {"magasin": "Wiine", "prix": 21.90}
+      ]
+    },
+    {
+      "nom": "Carmenère Gran Reserva",
+      "pays": "Chili",
+      "region": "Valle de Colchagua",
+      "type": "Rouge",
+      "millesime": "2021",
+      "rating": 4.3,
+      "prix": [
+        {"magasin": "Denner", "prix": 18.90},
+        {"magasin": "Coop", "prix": 19.90},
+        {"magasin": "Flaschenpost", "prix": 17.50}
+      ]
+    },
+    {
+      "nom": "Malbec Reserva",
+      "pays": "Argentine",
+      "region": "Mendoza",
+      "type": "Rouge",
+      "millesime": "2020",
+      "rating": 4.4,
+      "prix": [
+        {"magasin": "Coop", "prix": 24.90},
+        {"magasin": "Vivino CH", "prix": 23.00},
+        {"magasin": "Daniel Gazzar", "prix": 25.50}
+      ]
+    },
+    {
+      "nom": "Napa Valley Cabernet Sauvignon",
+      "pays": "USA",
+      "region": "Californie",
+      "type": "Rouge",
+      "millesime": "2019",
+      "rating": 4.5,
+      "prix": [
+        {"magasin": "Mövenpick", "prix": 65.00},
+        {"magasin": "Qwine", "prix": 62.90},
+        {"magasin": "Daniel Gazzar", "prix": 68.00}
+      ]
+    },
+    {
+      "nom": "Barossa Valley Shiraz",
+      "pays": "Australie",
+      "region": "Barossa Valley",
+      "type": "Rouge",
+      "millesime": "2020",
+      "rating": 4.3,
+      "prix": [
+        {"magasin": "Coop", "prix": 32.90},
+        {"magasin": "Vivino CH", "prix": 30.00},
+        {"magasin": "Wiine", "prix": 31.50}
+      ]
+    },
+    {
+      "nom": "Stellenbosch Pinotage",
+      "pays": "Afrique du Sud",
+      "region": "Stellenbosch",
+      "type": "Rouge",
+      "millesime": "2021",
+      "rating": 4.2,
+      "prix": [
+        {"magasin": "Denner", "prix": 19.90},
+        {"magasin": "Coop", "prix": 21.50},
+        {"magasin": "The Wine Family", "prix": 18.90}
+      ]
+    },
+    {
+      "nom": "Chablis Premier Cru",
+      "pays": "France",
+      "region": "Bourgogne",
+      "type": "Blanc",
+      "millesime": "2021",
+      "rating": 4.4,
+      "prix": [
+        {"magasin": "Mövenpick", "prix": 38.90},
+        {"magasin": "Coop", "prix": 41.50},
+        {"magasin": "Daniel Gazzar", "prix": 39.90}
+      ]
+    },
+    {
+      "nom": "Champagne Brut Millésimé",
+      "pays": "France",
+      "region": "Champagne",
+      "type": "Champagne",
+      "millesime": "2015",
+      "rating": 4.6,
+      "prix": [
+        {"magasin": "Coop", "prix": 55.90},
+        {"magasin": "Mövenpick", "prix": 52.00},
+        {"magasin": "Qwine", "prix": 54.50}
+      ]
+    },
+    {
+      "nom": "Soave Classico DOC",
+      "pays": "Italie",
+      "region": "Vénétie",
+      "type": "Blanc",
+      "millesime": "2022",
+      "rating": 4.1,
+      "prix": [
+        {"magasin": "Denner", "prix": 14.90},
+        {"magasin": "Coop", "prix": 16.50},
+        {"magasin": "Flaschenpost", "prix": 13.90}
+      ]
+    },
+    {
+      "nom": "Albariño Rías Baixas",
+      "pays": "Espagne",
+      "region": "Galice",
+      "type": "Blanc",
+      "millesime": "2022",
+      "rating": 4.3,
+      "prix": [
+        {"magasin": "Vivino CH", "prix": 22.00},
+        {"magasin": "The Wine Family", "prix": 23.50},
+        {"magasin": "Wiine", "prix": 21.50}
+      ]
+    },
+    {
+      "nom": "Vinho Verde DOC",
+      "pays": "Portugal",
+      "region": "Minho",
+      "type": "Blanc",
+      "millesime": "2023",
+      "rating": 4.1,
+      "prix": [
+        {"magasin": "Denner", "prix": 9.90},
+        {"magasin": "Coop", "prix": 10.90},
+        {"magasin": "Flaschenpost", "prix": 8.90}
+      ]
+    },
+    {
+      "nom": "Casablanca Valley Sauvignon Blanc",
+      "pays": "Chili",
+      "region": "Casablanca",
+      "type": "Blanc",
+      "millesime": "2022",
+      "rating": 4.2,
+      "prix": [
+        {"magasin": "Coop", "prix": 16.90},
+        {"magasin": "Vivino CH", "prix": 15.50},
+        {"magasin": "Denner", "prix": 17.50}
+      ]
+    }
+  ]
+}
